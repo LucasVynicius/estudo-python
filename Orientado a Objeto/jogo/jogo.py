@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 class Personagem:
     def __init__(self, nome, vida, nivel) -> None:
