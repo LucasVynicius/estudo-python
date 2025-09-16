@@ -19,7 +19,7 @@ def create_task():
     )
     task_id_control += 1
     tasks.append(new_task)
-    return jsonify({"message": "Nova tarefa criada com sucesso!"}), 201
+    return jsonify({"message": "Nova tarefa criada com sucesso!", "id": new_task.id}), 201
 
 
 @app.route("/tasks", methods=["GET"])
@@ -52,7 +52,8 @@ def update_task(task_id):
     task.title = data["title"]
     task.description = data["description"]
     task.completed = data["completed"]
-    return jsonify({"message": "Tarefa atualizada com sucesso!"}), 200.
+
+    return jsonify({"message": "Tarefa atualizada com sucesso!"}), 200
 
 
 @app.route("/tasks/<int:task_id>", methods=["DELETE"])
